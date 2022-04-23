@@ -1,17 +1,28 @@
+import { Box, Button } from '@chakra-ui/react';
 import type { GetServerSideProps, NextPage } from 'next';
 import { getSession, signIn } from 'next-auth/react';
 
 const Login: NextPage = () => {
   return (
-    <button
-      onClick={() =>
-        signIn(undefined, {
-          callbackUrl: `${window.location.origin}/app`,
-        })
-      }
+    <Box
+      height="100vh"
+      width="100%"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
     >
-      Login
-    </button>
+      <Button
+        onClick={() =>
+          signIn(undefined, {
+            callbackUrl: `${window.location.origin}/app`,
+          })
+        }
+        variant="solid"
+        colorScheme={'green'}
+      >
+        Login To Spotify
+      </Button>
+    </Box>
   );
 };
 

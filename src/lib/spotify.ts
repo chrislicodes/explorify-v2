@@ -20,3 +20,20 @@ export const getAccessToken = async (refresh_token: string) => {
 
   return response.json();
 };
+
+export const getUsersTopArtists = async (
+  refreshToken: string,
+  timeRange: 'short_term' | 'medium_term' | 'long_term',
+  limit: number
+) => {
+  const { access_token } = await getAccessToken(refreshToken);
+
+  return fetch(
+    `${BASE_ENDPOINT}/top/artists?time_range=${timeRange}&limit=${limit}`,
+    {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    }
+  );
+};
