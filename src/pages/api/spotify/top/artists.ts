@@ -1,5 +1,3 @@
-/// <reference types="spotify-api" />
-
 import { getUsersTopArtists } from 'src/lib/spotify';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getToken } from 'next-auth/jwt';

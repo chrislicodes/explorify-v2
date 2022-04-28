@@ -9,7 +9,7 @@ import {
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import useSWR from 'swr';
-import { TopArtist } from '../api/spotify/top/artists';
+import { TopArtist } from '../../../api/spotify/top/artists';
 
 const ArtistImage = chakra(Image, {
   baseStyle: { maxH: 120, maxW: 120 },
@@ -27,7 +27,7 @@ const App: NextPage = () => {
 
   return (
     <>
-      <Heading>Your Top Artists</Heading>
+      <Heading>Your Top Artists (EXTRA PAGE)</Heading>
       <Divider my={5} />
 
       {!topArtists && <p>Loading ..</p>}

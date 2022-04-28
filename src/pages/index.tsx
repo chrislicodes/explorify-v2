@@ -1,8 +1,10 @@
 import { Box, Button } from '@chakra-ui/react';
 import type { GetServerSideProps, NextPage } from 'next';
 import { getSession, signIn } from 'next-auth/react';
+import { ReactElement } from 'react';
+import { NextPageWithLayout } from './_app';
 
-const Login: NextPage = () => {
+const Login: NextPageWithLayout = () => {
   return (
     <Box
       height="100vh"
@@ -13,7 +15,7 @@ const Login: NextPage = () => {
     >
       <Button
         onClick={() =>
-          signIn(undefined, {
+          signIn('spotify', {
             callbackUrl: `${window.location.origin}/app`,
           })
         }
@@ -43,4 +45,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: { session },
   };
+};
+
+Login.getLayout = function getLayout(page: ReactElement) {
+  return <>{page}</>;
 };
